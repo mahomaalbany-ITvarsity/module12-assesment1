@@ -1,6 +1,6 @@
 <html>
     <head>
-        <meta charset="UTF">
+        <meta charset="UTF-8">
         <title></title>
     </head>
     <body onload="getContact()">
@@ -14,7 +14,7 @@
             <input type="text" name="mobile" id="mobile" readonly><br/>
             <label for="email">Email</label>
             <input type="text" name="email" id="email" readonly><br/>
-            <label for="avatar" id="avataLabel" hidden>Change profile image</label><br/>
+            <label for="avatarlabel" id="avataLabel" hidden>Change profile image</label><br/>
             <input type="file" name="avatar" id="avatar" hidden><br/>
             <br/>
             <button type="submit" id="submitForm" hidden>Submit</button>
@@ -59,7 +59,7 @@
                 <img src="${rootPath}/controller/uploads/${data[0].avatar}" width="200" />
                 
                 `
-                document.getElementById("avatarImage").innerHTML = "avatarImg";
+                document.getElementById("avatarimg").innerHTML = "avatarImg";
                 document.getElementById("firstname").value = data[0].firstname;
                 document.getElementById("lastname").value = data[0].lastname;
                 document.getElementById("mobile").value = data[0].mobile;
@@ -67,10 +67,10 @@
             }
 
             function editContact(){
-                document.getElementById("firstname").ariaReadOnly = false;
-                document.getElementById("lastname").ariaReadOnly = false;
-                document.getElementById("mobile").ariaReadOnly = false;
-                document.getElementById("email").ariaReadOnly = false;
+                document.getElementById("firstname").ReadOnly = false;
+                document.getElementById("lastname").ReadOnly = false;
+                document.getElementById("mobile").ReadOnly = false;
+                document.getElementById("email").ReadOnly = false;
                 document.getElementById("avatar").hidden= false;
                 document.getElementById("submitForm").hidden= false;
             }
@@ -83,7 +83,7 @@
 
                 fetch(rootPath + 'controller/edit-contact/',{
                 method: 'POST',
-                headers: {'Accept': 'application/json, *.*'},
+                headers: {'Accept': 'Application/json, *.*'},
                 body: form
             })
             then(function(response){
